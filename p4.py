@@ -1,4 +1,4 @@
-class Solution:
+class SolutionB:
     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
         sorted_str_dict = {}
         for i, s in enumerate(strs):
@@ -22,6 +22,9 @@ class SolutionO:
         
         # .values returns a literable object so just use list() to convert!
         return list(sorted_str_dict.values())
+
+class Solution:
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
 
 
 
