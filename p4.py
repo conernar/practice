@@ -18,7 +18,7 @@ class SolutionO:
         from collections import defaultdict
         sorted_str_dict = defaultdict(list)
         for s in strs:
-            sorted_str_dict["".join(sorted(s))] = s
+            sorted_str_dict["".join(sorted(s))].append(s)
         
         # .values returns a literable object so just use list() to convert!
         return list(sorted_str_dict.values())

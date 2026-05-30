@@ -9,7 +9,9 @@ class Solution:
 
         
         for char in t:
-            if not dictt.get(char):
+            #if not dictt.get(char):
+            # more expicit express:
+            if char not in dictt:
                 dictt[char] = 1
             else: 
                 dictt[char] = dictt[char] + 1
