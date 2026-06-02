@@ -1,4 +1,4 @@
-class Solution:
+class Solution1:
     def topKFrequent(self, nums: list[int], k: int) -> list[int]:
         from collections import defaultdict
         int_dic = defaultdict(int)
@@ -13,6 +13,34 @@ class Solution:
                     fre_max = int_dic[key]
                     res[i] = key
         return res
+class Solution2:
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+        # use Counter to solve easily.
+        from collections import Counter
+        d = Counter(nums)
+        res = []
+        for i in d.most_common(k):
+            res.append(i[0])
+        return res
+
+class Solution:
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+        d = {}
+        for i in nums:
+            d[i] = d.get(i, 0) + 1
+        # use original heapq in python is also elegant
+        import heapq
+        # heapify returns None and it changes a list directly.
+        heap = []
+        for key, v in d.items():
+            heapq.heappush(heap, (-v, key))
+        
+        res = []
+        for _ in range(k):
+            neg_freq, num = heapq.heappop(heap)
+            res.append(num)
+        return res
+        
 
 
 
