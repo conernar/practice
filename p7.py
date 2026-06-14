@@ -1,4 +1,4 @@
-class Solution:
+class Solution0:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
         res = []
         zeroes = 0
@@ -20,6 +20,24 @@ class Solution:
             for num in nums:
                 res.append(total // num)
         return res
+
+class Solution:
+    def productExceptSelf(self, nums: list[int]) -> list[int]:
+        # not using the division operation
+        n = len(nums)
+        res = [1] * n
+        prefix = 1
+        for i, num in enumerate(nums):
+            res[i] = prefix
+            prefix *= num
+        suffix = 1
+        for i in range(n):
+            res[n - 1 - i] *= suffix
+            suffix *= nums[n - 1 - i]
+        return res
+            
+            
+
 
 if __name__ == "__main__":
     sol = Solution()
