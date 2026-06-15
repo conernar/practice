@@ -1,6 +1,6 @@
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
-        return not bool(n & (n - 1))
+        return bool(n) and not n & (n - 1)
 
 
 if __name__ == "__main__":
