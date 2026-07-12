@@ -4,19 +4,19 @@ class Solution:
         for char in s:
             if not dicts.get(char):
                 dicts[char] = 1
-            else: 
+            else:
                 dicts[char] = dicts[char] + 1
 
-        
         for char in t:
-            #if not dictt.get(char):
+            # if not dictt.get(char):
             # more expicit express:
             if char not in dictt:
                 dictt[char] = 1
-            else: 
+            else:
                 dictt[char] = dictt[char] + 1
-        
+
         return dicts == dictt
+
 
 class SolutionO:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -29,15 +29,17 @@ class SolutionO:
         for char in t:
             dictt[char] = dictt.get(char, 0) + 1
         return dictt == dicts
+
+
 class SolutionP:
     def isAnagram(self, s: str, t: str) -> bool:
         # pythonic way to sovle the problem (colletions.Counter)
-        from colletions import Counter
+        from collections import Counter
+
         return Counter(s) == Counter(t)
+
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.isAnagram("racecar","carrace"))
-    print(sol.isAnagram("qwe123","123qwr"))
-
-
+    print(sol.isAnagram("racecar", "carrace"))
+    print(sol.isAnagram("qwe123", "123qwr"))
